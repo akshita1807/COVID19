@@ -1,0 +1,633 @@
+<!Doctype html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+        :root {
+            --primary: #136a8a;
+            --secondary: #39c4b8;
+            --color3: #b24592;
+            --color4: #f15f79;
+            --text-black: #272727;
+            --text-white: #fff;
+            --background: #f1f1f1;
+            --shadow: #a5a5a5;
+            --border: #c5c5c5;
+            --link: #35afa5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ececec;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #757575;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        body {
+            position: relative;
+            background: var(--background);
+        }
+
+        body.stop-scroll {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* -- HEADER SECTION -- */
+
+        header {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-black);
+            width: 100%;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0px 2px 9px var(--shadow);
+            background: white;
+            z-index: 900;
+        }
+
+        .quick-links-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .quick-links li {
+            list-style: none;
+        }
+
+        .quick-links a {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            padding: 15px 0;
+        }
+
+        .website-logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            list-style: none;
+        }
+
+
+        .navbar-menu a {
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            color: var(--text-black);
+        }
+
+        .navbar-menu a:hover {
+            box-shadow: 0px 0px 8px var(--shadow);
+            color: var(--link);
+            transition: all 0.2s ease;
+        }
+
+        .navbar-slide-container {
+            display: none;
+        }
+
+        /* Responsive Control For Header Section */
+
+        @media screen and (max-width: 1024px) {
+
+            .quick-links-container {
+                display: none;
+            }
+
+            .navbar-container {
+                padding: 0 25px;
+            }
+
+            .navbar-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 12px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+            }
+
+            .navbar-toggle:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                transition: all 0.3s ease;
+            }
+
+            .navbar-toggle .bar {
+                height: 3px;
+                width: 27px;
+                background: var(--text-black);
+            }
+
+            .navbar-toggle .bar:nth-child(1) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-toggle .bar:nth-child(2) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-slide-container {
+                position: fixed;
+                right: 0;
+                display: flex;
+                justify-content: flex-end;
+                width: 0;
+                height: 100vh;
+                box-shadow: 0px 0px 8px var(--shadow);
+                overflow-x: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .navbar-slide-container.active {
+                width: 45%;
+
+            }
+
+            .navbar-slide-top {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 80px;
+                padding: 0 25px;
+                border-bottom: 2px solid #c5c5c5;
+            }
+
+            .navbar-slide {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                background: white;
+                height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .navbar-slide-menu {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-row-gap: 2px;
+                width: 100%;
+                padding: 25px;
+            }
+
+            .navbar-slide-menu div {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+                padding: 0 12px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 1.2rem;
+            }
+
+            .navbar-slide-menu div:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                color: var(--link);
+            }
+
+            .navbar-slide-backfill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                width: 100%;
+                height: 100%;
+                z-index: 20;
+                transition: all 10s ease;
+                z-index: 994;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .navbar-slide-container.active {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 610px) {
+
+            .navbar-slide-container.active {
+                width: 80%;
+            }
+
+            .navbar-slide-menu div {
+                font-size: 1rem;
+            }
+        }
+
+        .zab {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+        }
+
+        #c1,
+        #c2,
+        #c3,
+        #c4,
+        #c5,
+        #c6,
+        #c7,
+        #c8,
+        #c9,
+        #c10 {
+            border-radius: 15px;
+            background: #1b9891;
+
+            width: 970px;
+            height: 40px;
+            margin: auto;
+            padding: 5px;
+
+
+        }
+
+        #z1,
+        #z2,
+        #z3,
+        #z4,
+        #z5,
+        #z6,
+        #z7,
+        #z8,
+        #z9,
+        #z10 {
+            background: white;
+            border-radius: 15px;
+            width: 970px;
+            height: 200px;
+            padding-top: 15px;
+            display: none;
+            margin: auto;
+            font-family: Tahoma, sans-serif;
+            color: #004466;
+
+            display: none;
+        }
+
+        p {
+            padding-top: 5px;
+            color: white;
+            text-align: center;
+            font-size: 17px;
+
+            font-family: Tahoma, sans-serif;
+            word-spacing: 2px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5ab419a81f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function navbarOpen() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "block", background: "rgba(0,0,0,0.4)" });
+            }
+
+            function navbarClose() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "none", background: "transparent" });
+            }
+
+            $("#navbar-open").click(navbarOpen);
+            $("#navbar-close").click(navbarClose);
+
+            $("#navbar-slide-backfill").click(navbarClose);
+            $("#slide-home").click(() => {
+                location.href = "index.html";
+                navbarClose();
+            });
+            $("#slide-services").click(() => {
+                location.href = "index.html#service";
+                navbarClose();
+            });
+            $("#slide-blog").click(() => {
+                location.href = "blog.html";
+                navbarClose();
+            });
+            $("#slide-contact").click(() => {
+                location.href = "index.html#contact";
+                navbarClose();
+            });
+            $("#slide-book").click(() => {
+                location.href = "appoint.html";
+                navbarClose();
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c1").click(function () {
+                $("#z1").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c2").click(function () {
+                $("#z2").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c3").click(function () {
+                $("#z3").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c4").click(function () {
+                $("#z4").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c5").click(function () {
+                $("#z5").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c6").click(function () {
+                $("#z6").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c7").click(function () {
+                $("#z7").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c8").click(function () {
+                $("#z8").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c9").click(function () {
+                $("#z9").slideToggle("slow");
+            });
+        });
+
+        $(document).ready(function () {
+            $("#c10").click(function () {
+                $("#z10").slideToggle("slow");
+            });
+        });
+
+
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar-container">
+            <div class="quick-links-container">
+                <ul class="quick-links">
+                    <li>
+                        <a href="#">Helpline Number : +91-11-23978046</a>
+                    </li>
+                    <li>
+                        <a href="#">Toll Free : 1075</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <h1 class="website-logo">
+                    <span><i class="fas fa-heartbeat"></i></span> QuadCare
+                </h1>
+                <div class="navbar-toggle" id="navbar-open">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#service">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="appoint.html">Book Appointment</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="navbar-slide-container" id="navbar-slide-container">
+            <div class="navbar-slide" id="navbar-slide">
+                <div class="navbar-slide-top">
+                    <div class="navbar-toggle" id="navbar-close">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <ul class="navbar-slide-menu">
+                    <div id="slide-home">Home</div>
+                    <div id="slide-services">Services</div>
+                    <div id="slide-blog">Blog</div>
+                    <div id="slide-contact">Contact</div>
+                    <div id="slide-book">Book Appointment</div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navbar-slide-backfill" id="navbar-slide-backfill"></div>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <img src="img/img8.png" width="1000px" height="400px" class="zab">
+    <br>
+    <br>
+    <br>
+    <div id="c1">
+        <p>Q: Should I wear a face covering or mask when I go out in public?
+    </div>
+    <div id="z1">A:Wearing masks that completely cover the mouth and nose reduces the spread of COVID-19. People who
+        never develop symptoms (asymptomatic) or are not yet showing symptoms (pre-symptomatic) might not know that they
+        are infected but can still spread COVID-19 to others. Masks also offer protection to the wearer. People must
+        wear masks that completely cover both the mouth and nose while awaiting, boarding, disembarking, or traveling on
+        airplanes, ships, ferries, trains, subways, buses, taxis, and ride-shares as they are traveling into, within, or
+        out of the United States and U.S. territories. </div><br>
+    <div id="c2">
+        <p>Q: Is hand sanitizer effective against COVID-19?
+    </div>
+    <div id="z2">A:The best way to prevent the spread of infections and decrease the risk of getting sick is by washing
+        your hands with plain soap and water, Washing hands often with soap and water for at least 20 seconds is
+        essential, especially after going to the bathroom; before eating; and after coughing, sneezing, or blowing one’s
+        nose. If soap and water are not available, recommends consumers use an alcohol-based hand sanitizer that
+        contains at least 60% alcohol. </div><br>
+    <div id="c3">
+        <p>
+            Q: Am I at risk for serious complications from COVID-19 if I smoke cigarettes?
+    </div>
+    <div id="z3">A: Yes. Data shows that when compared to never smokers, cigarette smoking increases the risk of more
+        severe illness from COVID-19, which could result in hospitalization, the need for intensive care, or even death.
+        Smoking cigarettes can cause inflammation and cell damage throughout the body, and can weaken your immune
+        system, making it less able to fight off disease.</div><br>
+    <div id="c4">
+        <p>Q:Is wearing a mask and sanitizing hands not enough?What all precautions should we be takeing in our
+            day-to-day lives?</p>
+    </div>
+    <div id="z4">A:First and foremost, everyone must minimize/restrict moving out of their homes. If you do need to go
+        out, try to avoid closed spaces especially where there is recirculating air and crowded areas. Always maintain
+        adequate physical distance when interacting with people and avoid all forms of close contact including hugging,
+        handshake, social kissing, etc. Always insist that the person you are interacting with is also properly masked.
+        When stepping out, make sure that you wear a proper mask (triple-layered or 3 ply mask with a snug fit)
+        throughout the period that you are out. If you are going to be in a closed area or an area with recirculating
+        air, then a double mask is recommended.
+        While at home or in the office - try & maintain good air circulation with as much fresh air as possible. Try to
+        avoid the use of lifts/elevators as much as possible.
+    </div><br>
+    <div id="c5">
+        <p>Q: Can pets carry the virus that causes COVID-19 on their skin or fur?</p>
+    </div>
+    <div id="z5">A: Although we know certain bacteria and fungi can be carried on fur and hair, there is no evidence
+        that viruses, including the virus that causes COVID-19, can spread to people from the skin, fur, or hair of
+        pets.
+        However, because animals can sometimes carry other germs that can make people sick, it’s always a good idea to
+        practice healthy habits around pets and other animals, including washing hands before and after interacting with
+        them and especially after cleaning up their waste.
+    </div><br>
+    <div id="c6">
+        <p>Q:I want to find out if I had COVID-19 in the past, what test could I take?</p>
+    </div>
+    <div id="z6">A:Antibody tests can tell us whether someone has had an infection in the past, even if they have not
+        had symptoms. Also known as serological tests and usually done on a blood sample, these tests detect antibodies
+        produced in response to an infection. In most people, antibodies start to develop after days to weeks and can
+        indicate if a person has had past infection. Antibody tests cannot be used to diagnose COVID-19 in the early
+        stages of infection or disease but can indicate whether or not someone has had the disease in the past.</div>
+    <br>
+    <div id="c7">
+        <p>Q:What is the difference between isolation and quarantine?</p>
+    </div>
+    <div id="z7">A:Quarantine is used for anyone who is a contact of someone infected with the SARS-CoV-2 virus, which
+        causes COVID-19, whether the infected person has symptoms or not. Quarantine means that you remain separated
+        from others because you have been exposed to the virus and you may be infected and can take place in a
+        designated facility or at home. For COVID-19, this means staying in the facility or at home for 14 days.
+        Isolation is used for people with COVID-19 symptoms or who have tested positive for the virus. Being in
+        isolation means being separated from other people, ideally in a medically facility where you can receive
+        clinical care. If isolation in a medical facility is not possible and you are not in a high risk group of
+        developing severe disease, isolation can take place at home. If you have symptoms, you should remain in
+        isolation for at least 10 days plus an additional 3 days without symptoms. If you are infected and do not
+        develop symptoms, you should remain in isolation for 10 days from the time you test positive.
+    </div><br>
+    <div id="c8">
+        <p>Q:What can people with heart disease do to protect themselves?</p>
+    </div>
+    <div id="z8">A:COVID-19 can damage the respiratory system and make it harder for the heart to function properly. If
+        you have heart disease, it is important to take your medication exactly as prescribed, including medication to
+        treat high cholesterol or high blood pressure. Make sure that you have at least a two-week supply of heart
+        disease medications and continue to manage and control your blood pressure.</div><br>
+    <div id="c9">
+        <p>Q:How can individuals who have chronic health conditions protect themselves from COVID-19?</p>
+    </div>
+    <div id="z9">A: Continue taking your medications<br>
+         Have at least a two-week supply of all prescription (and non-prescription) drugs<br>
+         Talk to a healthcare professional to make sure you are up-to-date on all recommended vaccines, including
+        vaccines to protect against influenza and pneumococcal disease<br>
+         Do not delay emergency care because of COVID-19. If you need emergency help, call 911.<br>
+    </div><br>
+    <div id="c10">
+        <p>Q:Can coronavirus live on objects? Mail from affected areas? Clothes?</p>
+    </div>
+    <div id="z10">A:There is no evidence at present that items imported from affected areas and shipped or mailed over
+        the course of days or weeks are spreading COVID-19. Although the new coronavirus weakens and dies over time
+        outside of the human body, studies suggest that it can live on surfaces for a few hours or up to several days,
+        depending on surface, temperature and other environmental factors. For instance, a small amount of the new
+        coronavirus is still detectable on plastic surfaces for up to three days, on stainless steel for up to two days
+        and up to one day on cardboard, but it’s at less than 0.1% of the starting virus material.
+
+    </div><br>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,629 @@
+<!Doctype html>
+<html>
+
+<head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+        :root {
+            --primary: #136a8a;
+            --secondary: #39c4b8;
+            --color3: #b24592;
+            --color4: #f15f79;
+            --text-black: #272727;
+            --text-white: #fff;
+            --background: #f1f1f1;
+            --shadow: #a5a5a5;
+            --border: #c5c5c5;
+            --link: #35afa5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ececec;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #757575;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        body {
+            position: relative;
+            background: var(--background);
+        }
+
+        body.stop-scroll {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* -- HEADER SECTION -- */
+
+        header {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-black);
+            width: 100%;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0px 2px 9px var(--shadow);
+            background: white;
+            z-index: 900;
+        }
+
+        .quick-links-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .quick-links li {
+            list-style: none;
+        }
+
+        .quick-links a {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            padding: 15px 0;
+        }
+
+        .website-logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            list-style: none;
+        }
+
+
+        .navbar-menu a {
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            color: var(--text-black);
+        }
+
+        .navbar-menu a:hover {
+            box-shadow: 0px 0px 8px var(--shadow);
+            color: var(--link);
+            transition: all 0.2s ease;
+        }
+
+        .navbar-slide-container {
+            display: none;
+        }
+
+        /* Responsive Control For Header Section */
+
+        @media screen and (max-width: 1024px) {
+
+            .quick-links-container {
+                display: none;
+            }
+
+            .navbar-container {
+                padding: 0 25px;
+            }
+
+            .navbar-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 12px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+            }
+
+            .navbar-toggle:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                transition: all 0.3s ease;
+            }
+
+            .navbar-toggle .bar {
+                height: 3px;
+                width: 27px;
+                background: var(--text-black);
+            }
+
+            .navbar-toggle .bar:nth-child(1) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-toggle .bar:nth-child(2) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-slide-container {
+                position: fixed;
+                right: 0;
+                display: flex;
+                justify-content: flex-end;
+                width: 0;
+                height: 100vh;
+                box-shadow: 0px 0px 8px var(--shadow);
+                overflow-x: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .navbar-slide-container.active {
+                width: 45%;
+
+            }
+
+            .navbar-slide-top {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 80px;
+                padding: 0 25px;
+                border-bottom: 2px solid #c5c5c5;
+            }
+
+            .navbar-slide {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                background: white;
+                height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .navbar-slide-menu {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-row-gap: 2px;
+                width: 100%;
+                padding: 25px;
+            }
+
+            .navbar-slide-menu div {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+                padding: 0 12px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 1.2rem;
+            }
+
+            .navbar-slide-menu div:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                color: var(--link);
+            }
+
+            .navbar-slide-backfill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                width: 100%;
+                height: 100%;
+                z-index: 20;
+                transition: all 10s ease;
+                z-index: 994;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .navbar-slide-container.active {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 610px) {
+
+            .navbar-slide-container.active {
+                width: 80%;
+            }
+
+            .navbar-slide-menu div {
+                font-size: 1rem;
+            }
+        }
+
+        #h9 {
+            height: 400px;
+            width: 800px;
+            margin-left: 270px;
+        }
+
+        #f9 {
+            border: 5px;
+            background-color: lightblue;
+            text-align: center;
+            font-family: cursive;
+            width: 390px;
+            height: 35px;
+            margin: auto;
+            border-radius: 20px;
+        }
+
+        #m1 {
+            font-family: cursive;
+            word-spacing: 3px;
+            color:
+                #29a3a3;
+            font-size: 21px;
+
+
+            color: #008080;
+            background-color: #d6f5f5;
+        }
+
+
+
+        #l1 {
+            font-family: cursive;
+            color: #006666;
+            font-size: 21px;
+            word-spacing: 3px;
+            margin-left: 10px;
+        }
+
+        #j7 {
+            font-family: cursive;
+            text-decoration: underline;
+            font-size: 21px;
+        }
+
+
+        #l1 {
+            font-family: cursive;
+            color: #006666;
+            font-size: 21px;
+            background-color: #d6f5f5;
+        }
+
+        p {
+            font-family: cursive;
+            word-spacing: 3px;
+            margin-left: 10px;
+        }
+
+        div.gallery {
+            margin: 9px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        #v6 {
+            margin-left: 70px;
+        }
+
+        main {
+            font-family: cursive;
+        }
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+
+        .center-div {
+            width: 1200px;
+            height: 300px;
+            background-color: var(--background);
+            display: grid;
+            place-items: center;
+            margin: auto;
+
+        }
+
+        #y1 {
+            color: white;
+            font-size: 4rem;
+            text-transform: uppercase;
+            position: relative;
+
+        }
+
+        #y1::before {
+            content: "#WewillWIN";
+            width: 100%;
+            color: #008080;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-right: .4rem solid #008080;
+            animation: slide 7s linear infinite;
+            -webkit-animation: slide 7s linear infinite;
+            overflow: hidden;
+        }
+
+        @keyframes slide {
+            0% {
+                width: 0%;
+            }
+
+            50% {
+                width: 100%;
+            }
+
+            100% {
+                width: 0%;
+            }
+        }
+
+        #z1 {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/5ab419a81f.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            function navbarOpen() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "block", background: "rgba(0,0,0,0.4)" });
+            }
+
+            function navbarClose() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "none", background: "transparent" });
+            }
+
+            $("#navbar-open").click(navbarOpen);
+            $("#navbar-close").click(navbarClose);
+
+            $("#navbar-slide-backfill").click(navbarClose);
+            $("#slide-home").click(() => {
+                location.href = "index.html";
+                navbarClose();
+            });
+            $("#slide-services").click(() => {
+                location.href = "index.html#service";
+                navbarClose();
+            });
+            $("#slide-blog").click(() => {
+                location.href = "blog.html";
+                navbarClose();
+            });
+            $("#slide-contact").click(() => {
+                location.href = "index.html#contact";
+                navbarClose();
+            });
+            $("#slide-book").click(() => {
+                location.href = "appoint.html";
+                navbarClose();
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar-container">
+            <div class="quick-links-container">
+                <ul class="quick-links">
+                    <li>
+                        <a href="#">Helpline Number : +91-11-23978046</a>
+                    </li>
+                    <li>
+                        <a href="#">Toll Free : 1075</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <h1 class="website-logo">
+                    <span><i class="fas fa-heartbeat"></i></span> QuadCare
+                </h1>
+                <div class="navbar-toggle" id="navbar-open">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#service">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="appoint.html">Book Appointment</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="navbar-slide-container" id="navbar-slide-container">
+            <div class="navbar-slide" id="navbar-slide">
+                <div class="navbar-slide-top">
+                    <div class="navbar-toggle" id="navbar-close">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <ul class="navbar-slide-menu">
+                    <div id="slide-home">Home</div>
+                    <div id="slide-services">Services</div>
+                    <div id="slide-blog">Blog</div>
+                    <div id="slide-contact">Contact</div>
+                    <div id="slide-book">Book Appointment</div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navbar-slide-backfill" id="navbar-slide-backfill"></div>
+    </header>
+    <main>
+        <br><br><br><br><br><br>
+        <img src="img/img13.jpg" class="mx-auto d-block" id="h9"><br><br><br>
+        <div id="f9">
+            <h2><b>Let's Bust Some Myths<b></h2>
+        </div><br>
+        <div id="z1" style="margin: 0px 30px;">
+            <p id="m1">As the COVID-19 pandemic continues, a host of untruths has surrounded the topic. In this Special
+                Feature, we address some of these myths and conspiracy theories.As ever, when the word “pandemic” began
+                appearing in headlines, people became fearful and with fear came misinformation and rumors.
+
+                Below, we dissect some of the most common myths currently circulating on social media and beyond.</p>
+            <br>
+            <p id="j7"> Things we need to know:-</p>
+            <br>
+            <ul id="r1">
+                <li id="l1"> Covid-19 can be transmitted through goods produced in countries where there is ongoing
+                    transmission </li><br>
+                <p>Although it can last on surfaces for many hours, but the environment, transportation and varying
+                    temperatures during shipment make it difficult for the virus to remain active. If you feel the
+                    surface
+                    may be contaminated, clean it with a disinfectant and wash your hands after touching it.</p><br>
+                <li id="l1">Covid-19 be transmitted through mosquitoes/houseflies</li><br>
+                <p>To date, there is no evidence or information to suggest that the COVID-19 virus transmitted . The
+                    virus
+                    that cause COVID-19 spreads primarily through droplets generated when an infected person coughs,
+                    sneezes
+                    or speaks. You can also become infected by touching a contaminated surface then touching your eyes,
+                    nose
+                    or mouth before washing your hands. To protect yourself, keep at least 1-metre distance from others
+                    and
+                    disinfect frequently-touched Clean your hands thoroughly and often and avoid touching your eyes,
+                    mouth
+                    and nose.</p><br>
+                <li id="l1">Drinking alcohol help prevent Covid-19?</li><br>
+                <p>Drinking alcohol, such as beer, liquor, wine doesn’t help prevent coronavirus. You should wash your
+                    hands
+                    often, wear masks, and avoid being close to those with a fever and cough.</p><br>
+
+            </ul>
+        </div>
+        </div><br><br>
+        <div class="gallery" id="v6">
+            <a target="_blank" href="img/k1.jpg">
+                <img src="img/k1.jpg" alt="Cinque Terre" width="600" height="400">
+            </a>
+            <div class="desc">covid is not airborn yet</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="img/k2.jpg">
+                <img src="img/k2.jpg" alt="Forest" width="600" height="400">
+            </a>
+            <div class="desc">People of all ages can be affected</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="img/k3.jpg">
+                <img src="img/k3.jpg" alt="Northern Lights" width="600" height="400">
+            </a>
+            <div class="desc">There is no such evidence yet</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="img/k4.jpg">
+                <img src="img/k4.jpg" alt="Mountains" width="600" height="400">
+            </a>
+            <div class="desc">No,inhaling steam does not kill the virus</div>
+        </div>
+
+        <div class="gallery">
+            <a target="_blank" href="img/k5.jpg">
+                <img src="img/k5.jpg" alt="Mountains" width="600" height="400">
+            </a>
+            <div class="desc">No,they can't permit the virus</div>
+        </div>
+        <div class="gallery">
+            <a target="_blank" href="img/k6.jpg">
+                <img src="img/k6.jpg" alt="Mountains" width="600" height="400">
+            </a>
+            <div class="desc">No,Antibiotics work only against bacteria</div>
+        </div>
+        <br>
+        <br>
+        <div class="center-div">
+            <h1 id="y1">#WewillWIN</h2>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Blog</title>
+        <link rel="stylesheet" href="css/blog.css" />
+        <script
+            src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://kit.fontawesome.com/5ab419a81f.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body id="body">
+        <!-- HEADER SECTION -->
+        <header>
+            <nav class="navbar-container">
+                <div class="quick-links-container">
+                    <ul class="quick-links">
+                        <li>
+                            <a href="#">Helpline Number : +91-11-23978046</a>
+                        </li>
+                        <li>
+                            <a href="#">Toll Free : 1075</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar">
+                    <h1 class="website-logo">
+                        <span><i class="fas fa-heartbeat"></i></span> QuadCare
+                    </h1>
+                    <div class="navbar-toggle" id="navbar-open">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <ul class="navbar-menu">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#service">Services</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="appoint.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="navbar-slide-container" id="navbar-slide-container">
+                <div class="navbar-slide" id="navbar-slide">
+                    <div class="navbar-slide-top">
+                        <div class="navbar-toggle" id="navbar-close">
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                            <div class="bar"></div>
+                        </div>
+                    </div>
+                    <ul class="navbar-slide-menu">
+                        <div id="slide-home">Home</div>
+                        <div id="slide-services">Services</div>
+                        <div id="slide-blog">Blog</div>
+                        <div id="slide-about">About</div>
+                        <div id="slide-book">Book Appointment</div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="navbar-slide-backfill" id="navbar-slide-backfill"></div>
+        </header>
+        <!-- /HEADER SECTION -->
+
+        <!-- MAIN SECTION -->
+        <main>
+            <section class="card-container" id="card-container">
+                <!-- Card-0 -->
+                <div class="card" id="card0">
+                    <div class="card-title" id="card0-title">
+                        <h2>ALL POSTS</h2>
+                    </div>
+                    <div class="card-menu">
+                        <div class="menu-item" id="menu-item1">
+                            <div class="item-img">
+                                <img src="img/vaccine.jpg" alt="vaccine">
+                            </div>
+                            <div class="item-text" id="item-text1">
+                                <p>Covaxin vs Covishield - A Detailed Comparision</p>
+                                <h4 class="item-subtext">27th May 2021</h4>
+                            </div>
+                        </div>
+                         <div class="menu-item" id="menu-item2">
+                            <div class="item-img">
+                                <img src="img/berry.jpg" alt="berry">
+                            </div>
+                            <div class="item-text">
+                                <p>Delicious Blackberries And Their Health Benefits</p>
+                                <h4 class="item-subtext">26th May 2021</h4>
+                            </div>
+                        </div>
+                         <div class="menu-item" id="menu-item3">
+                            <div class="item-img">
+                                <img src="img/knee.jpg" alt="knee joint">
+                            </div>
+                            <div class="item-text">
+                                <p>7 Easy Home Remedies For Knee Joint Pain</p>
+                                <h4 class="item-subtext">25th May 2021</h4>
+                            </div>
+                        </div>
+                         <div class="menu-item" id="menu-item4">
+                            <div class="item-img">
+                                <img src="img/giloy.jpg" alt="giloy">
+                            </div>
+                            <div class="item-text">
+                                <p>10 Health Benefits of Giloy – The Ultimate Immunity Booster</p>
+                                <h4 class="item-subtext">24th May 2021</h4>
+                            </div>
+                        </div>
+                         <div class="menu-item" id="menu-item5">
+                            <div class="item-img">
+                                <img src="img/lime.jpg" alt="lime">
+                            </div>
+                            <div class="item-text">
+                                <p>8 Nutritious Health Benefits of Sweet Lime</p>
+                                <h4 class="item-subtext">23th May 2021</h4>
+                            </div>
+                        </div>
+                         <div class="menu-item" id="menu-item6">
+                            <div class="item-img">
+                                <img src="img/aloe.jpg" alt="aloe">
+                            </div>
+                            <div class="item-text">
+                                <p>9 Aloe Vera Benefits for Face and Skin!</p>
+                                <h4 class="item-subtext">22th May 2021</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 1 - left -->
+                <div class="card" id="card1">
+                    <div class="card-links" id="card-headlinks">
+                        <a href="#">COVID 19 Updates</a>
+                        <a href="#">Health Today</a>
+                        <a href="#">Patient Awareness</a>
+                        <a href="#">Protocol for Emergencies</a>
+                    </div>
+                    <div class="card-title" id="card1-title">
+                        <h2>Covaxin vs Covishield - A Detailed Comparision</h2>
+                    </div>
+                    <div class="card-subtitle" id="card1-subtitle">
+                        <h4>2 days ago</h4>
+                    </div>
+                    <div id="card1-img"></div>
+                    <div class="card-content" id="card1-content">
+                        <p>
+                            The second phase of the COVID-19 vaccination drive has already begun in India, and many
+                            people are still unaware of how the two vaccines – Covaxin and Covishield – are different
+                            from each other.
+                        </p>
+                        <br />
+                        <p>
+                            The second phase began on March 1, in which people over the age of 60 and those above 45
+                            with associated comorbidities can take the life-saving shots.
+                        </p>
+                        <br />
+                        <p>
+                            Currently, the government hasn’t allowed people to decide which vaccine they want to get,
+                            but the result of the first phase clearly suggests that both the vaccines being inoculated
+                            in India are safe and effective.
+                        </p>
+                        <br />
+                        <p>
+                            Well, we have compiled all the information to give you a better understanding of the
+                            formulation and every other detail about the vaccine you are going to get to stay safe from
+                            the Coronavirus.
+                        </p><br>
+                        <h2>Developer</h2><br>
+                        <p>
+                            Covaxin has been developed by Hyderabad-based Bharat Biotech International Ltd in
+                            association with the Indian Council of Medical Research (ICMR) and the National Institute of
+                            Virology (NIV).
+                        </p><br>
+                        <p>
+                            Covishield has been developed by the Oxford-AstraZeneca and is being manufactured by the
+                            Serum Institute of India (SII).
+                        </p><br>
+                        <h2>Type of Vaccine</h2><br>
+                        <p>Covaxin is an inactivated vaccine, which has been prepared on a tried and tested platform of dead viruses.</p><br>
+                        <p>This vaccine is developed with Whole-Virion Inactivated Vero Cell-derived technology. They contain inactivated viruses, which can not infect a person but still can teach the immune system to prepare a defence mechanism against the active virus.</p><br>
+                        <p>These conventional vaccines have been in use for decades now. There are vaccines for some other diseases as well which are made using the same technology. These diseases are –</p><br>
+                        <ul>
+                            <li>Seasonal influenza</li>
+                            <li>Rabies</li>
+                            <li>Polio</li>
+                            <li>Pertussis</li>
+                            <li>Japanese encephalitis</li>
+                        </ul><br>
+                        <p>Covishield has been prepared using the viral vector platform which is a totally different technology.</p><br>
+                        <p>A chimpanzee adenovirus – ChAdOx1 – has been modified to enable it to carry the COVID-19 spike protein into the cells of humans. Well, this cold virus is basically incapable of infecting the receiver but can very well teach the immune system to prepare a mechanism against such viruses.</p><br>
+                        <p>The exact technology was used to prepare vaccines for viruses like Ebola.</p>
+                        <h2>Doses</h2><br>
+                        <p>There is no difference between the two vaccines in terms of dosage. Both of them follow a two-dose regimen, administered 28 days apart.</p><br>
+                        <h2>Efficiency</h2><br>
+                        <p>Both the vaccines have shown more than satisfactory results ever since the inoculation started in India.</p><br>
+                        <p>The effectiveness of the Covishield vaccine is nearly 90% as per the global reports and Covaxin’s 81% according to interim 3rd phase trial results.</p><br>
+                        <p>Covishield, on the other hand, has shown a very satisfactory efficacy of 62 percent.</p>
+                    </div>
+                    <div class="card-links" id="card1-hastags">
+                        <a href="#">#Coronavirus</a>
+                        <a href="#">#coronavirusoutbreak</a>
+                        <a href="#">#COVAXIN</a>
+                        <a href="#">#COVID-19</a>
+                        <a href="#">#lockdown</a>
+                        <a href="#">#covid19vaccinenews</a>
+                        <a href="#">#covishield</a>
+                        <a href="#">#Vaccine</a>
+                    </div>
+                    <div class="card-social-links">
+                        <button class="facebook-btn">
+                            <i class="fab fa-facebook-f"></i>
+                        </button>
+                        <button class="twitter-btn">
+                            <i class="fab fa-twitter"></i>
+                        </button>
+                        <button class="google-plus-btn">
+                            <i class="fab fa-google-plus-g"></i>
+                        </button>
+                        <button class="pinterest-btn">
+                            <i class="fab fa-pinterest-p"></i>
+                        </button>
+                        <button class="linkedin-btn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Card 2 - right-->
+                <div class="card" id="card2">
+                    <div class="card-title" id="card2-title">
+                        <h2>Recent Posts</h2>
+                    </div>
+                    <div class="card-items">
+                        <div class="card-item" id="card-item1">
+                            <div class="card-img" id="card-img1"><img src="img/vaccine.jpg" alt="vaccine"></div>
+                            <div class="img-text">
+                                <p>Covaxin vs Covishield - A Detailed...</p>
+                            </div>
+                            <div class="img-subtext">27th May 2021</div>
+                        </div>
+                        <div class="card-item" id="card-item2">
+                            <div class="card-img" id="card-img2"><img src="img/berry.jpg" alt="berry"></div>
+                            <div class="img-text">
+                                <p>Delicious Blackberries And Their...</p>
+                            </div>
+                            <div class="img-subtext">26th May 2021</div>
+                        </div>
+                        <div class="card-item" id="card-item3">
+                            <div class="card-img" id="card-img3"><img src="img/knee.jpg" alt="knee joint">  </div>
+                            <div class="img-text">
+                                <p>7 Easy Home Remedies For Knee Joint...</p>
+                            </div>
+                            <div class="img-subtext">25th May 2021</div>
+                        </div>
+                        <div class="card-item" id="card-item4">
+                            <div class="card-img" id="card-img4"><img src="img/giloy.jpg" alt="knee joint"></div>
+                            <div class="img-text">
+                                <p>10 Health Benefits of Giloy - The...</p>
+                            </div>
+                            <div class="img-subtext">24th May 2021</div>
+                        </div>
+                    </div>
+                    <div id="show-more">
+                        <a href="blog.html">Show More</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 - bottom -->
+                <div class="card" id="card3">
+                    <div class="section1">
+                        <h2>
+                            Sign Up For Our
+                            <span>Newsletter</span>
+                        </h2>
+                    </div>
+                    <div class="section2">
+                        <form class="form" autocomplete="off">
+                            <table>
+                                <tr>
+                                    <td class="col-1">
+                                        <label for="fname">First Name</label>
+                                    </td>
+                                    <td class="col-2">
+                                        <input type="text" id="fname" maxlength = "50" required onkeypress = "return onlyAlphabets(event,this);"/>
+                                    </td>
+                                    <td class="col-3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-1">
+                                        <label for="lname">Last Name</label>
+                                    </td>
+                                    <td class="col-2">
+                                        <input type="text" id="lname" maxlength = "50" required onkeypress = "return onlyAlphabets(event,this);"/>
+                                    </td>
+                                    <td class="col-3"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-1">
+                                        <label for="email">Email</label>
+                                    </td>
+                                    <td class="col-2">
+                                        <input type="email" id="email" required/>
+                                    </td>
+                                    <td class="col-3"></td>
+                                </tr>
+                                <tr class="row-4">
+                                    <td colspan="2" class="col-1">
+                                        <button id="sign-up">
+                                            <span>Sign Up</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <!-- /MAIN SECTION -->
+
+        <!-- FOOTER SECTION -->
+        <footer>
+            <h2>Copyright 2021</h2>
+        </footer>
+        <!-- /FOOTER SECTION -->
+
+        <script src="js/blog.js"></script>
+    </body>
+</html>

@@ -1,0 +1,512 @@
+<!Doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/5ab419a81f.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            function navbarOpen() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "block", background: "rgba(0,0,0,0.4)" });
+            }
+
+            function navbarClose() {
+                $("body").toggleClass("stop-scroll");
+                $("#navbar-slide-container").toggleClass("active");
+                $("#navbar-slide-backfill").css({ display: "none", background: "transparent" });
+            }
+
+            $("#navbar-open").click(navbarOpen);
+            $("#navbar-close").click(navbarClose);
+
+            $("#navbar-slide-backfill").click(navbarClose);
+            $("#slide-home").click(() => {
+                location.href = "index.html";
+                navbarClose();
+            });
+            $("#slide-services").click(() => {
+                location.href = "index.html#service";
+                navbarClose();
+            });
+            $("#slide-blog").click(() => {
+                location.href = "blog.html";
+                navbarClose();
+            });
+            $("#slide-contact").click(() => {
+                location.href = "index.html#contact";
+                navbarClose();
+            });
+            $("#slide-book").click(() => {
+                location.href = "appoint.html";
+                navbarClose();
+            });
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+        :root {
+            --primary: #136a8a;
+            --secondary: #39c4b8;
+            --color3: #b24592;
+            --color4: #f15f79;
+            --text-black: #272727;
+            --text-white: #fff;
+            --background: #f1f1f1;
+            --shadow: #a5a5a5;
+            --border: #c5c5c5;
+            --link: #35afa5;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ececec;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #757575;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555555;
+        }
+
+        body {
+            position: relative;
+            background: var(--background);
+        }
+
+        body.stop-scroll {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* -- HEADER SECTION -- */
+
+        header {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-black);
+            width: 100%;
+        }
+
+        .navbar-container {
+            position: fixed;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0px 2px 9px var(--shadow);
+            background: white;
+            z-index: 900;
+        }
+
+        .quick-links-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            padding: 5px 0;
+            border-bottom: 1px solid var(--border);
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .quick-links {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .quick-links li {
+            list-style: none;
+        }
+
+        .quick-links a {
+            padding: 5px 10px;
+            font-size: 0.8rem;
+            text-decoration: none;
+            color: var(--text-white);
+        }
+
+        .quick-links a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1100px;
+            padding: 15px 0;
+        }
+
+        .website-logo {
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .navbar-menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-menu li {
+            list-style: none;
+        }
+
+
+        .navbar-menu a {
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            color: var(--text-black);
+        }
+
+        .navbar-menu a:hover {
+            box-shadow: 0px 0px 8px var(--shadow);
+            color: var(--link);
+            transition: all 0.2s ease;
+        }
+
+        .navbar-slide-container {
+            display: none;
+        }
+
+        /* Responsive Control For Header Section */
+
+        @media screen and (max-width: 1024px) {
+
+            .quick-links-container {
+                display: none;
+            }
+
+            .navbar-container {
+                padding: 0 25px;
+            }
+
+            .navbar-toggle {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 12px;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                border-radius: 4px;
+            }
+
+            .navbar-toggle:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                transition: all 0.3s ease;
+            }
+
+            .navbar-toggle .bar {
+                height: 3px;
+                width: 27px;
+                background: var(--text-black);
+            }
+
+            .navbar-toggle .bar:nth-child(1) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-toggle .bar:nth-child(2) {
+                margin-bottom: 5px;
+            }
+
+            .navbar-menu {
+                display: none;
+            }
+
+            .navbar-slide-container {
+                position: fixed;
+                right: 0;
+                display: flex;
+                justify-content: flex-end;
+                width: 0;
+                height: 100vh;
+                box-shadow: 0px 0px 8px var(--shadow);
+                overflow-x: hidden;
+                transition: all 0.3s ease;
+                z-index: 999;
+            }
+
+            .navbar-slide-container.active {
+                width: 45%;
+
+            }
+
+            .navbar-slide-top {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 80px;
+                padding: 0 25px;
+                border-bottom: 2px solid #c5c5c5;
+            }
+
+            .navbar-slide {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                background: white;
+                height: 100%;
+                width: 100%;
+                overflow-x: hidden;
+            }
+
+            .navbar-slide-menu {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-row-gap: 2px;
+                width: 100%;
+                padding: 25px;
+            }
+
+            .navbar-slide-menu div {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                width: 100%;
+                height: 70px;
+                padding: 0 12px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 1.2rem;
+            }
+
+            .navbar-slide-menu div:hover {
+                box-shadow: 0px 0px 8px var(--shadow);
+                color: var(--link);
+            }
+
+            .navbar-slide-backfill {
+                position: absolute;
+                top: 0;
+                left: 0;
+                display: none;
+                width: 100%;
+                height: 100%;
+                z-index: 20;
+                transition: all 10s ease;
+                z-index: 994;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+
+            .navbar-slide-container.active {
+                width: 50%;
+            }
+        }
+
+        @media screen and (max-width: 610px) {
+
+            .navbar-slide-container.active {
+                width: 80%;
+            }
+
+            .navbar-slide-menu div {
+                font-size: 1rem;
+            }
+        }
+
+        #v1 {
+            border: 2px solid black;
+            background-color: lightblue;
+            text-align: center;
+            font-family: cursive;
+            width: 390px;
+            height: 35px;
+            margin: auto;
+            border-radius: 20px;
+            margin-top: 8px;
+            margin-left: 480px;
+        }
+
+        img {
+            height: 400px;
+            width: 700px;
+            padding-top: 50px;
+            margin-left: 330px;
+        }
+
+        #w1 {
+            font-size: 20px;
+            font-family: cursive;
+            color: #124d47;
+            text-decoration: underline;
+            margin-left: 9px;
+        }
+
+        #r1 {
+            font-family: cursive;
+            color: #139e90;
+            font-size: 17px;
+            margin-left: 9px;
+            color: #008080;
+
+        }
+
+        #t1 {
+            font-family: cursive;
+            color: #4ca89f;
+            font-size: 17px;
+            margin-left: 9px;
+            color: #008080;
+            background-color: #d6f5f5;
+        }
+
+        #n1 {
+            font-size: 20px;
+            font-family: cursive;
+            color: #124d47;
+            margin-left: 9px;
+            text-decoration: underline;
+        }
+
+        #f1 {
+            font-family: cursive;
+            font-size: 17px;
+            color: #008080;
+            background-color: #d6f5f5;
+
+            margin-left: 7px;
+        }
+
+        #v7 {
+            margin-left: 490px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar-container">
+            <div class="quick-links-container">
+                <ul class="quick-links">
+                    <li>
+                        <a href="#">Helpline Number : +91-11-23978046</a>
+                    </li>
+                    <li>
+                        <a href="#">Toll Free : 1075</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <h1 class="website-logo">
+                    <span><i class="fas fa-heartbeat"></i></span> QuadCare
+                </h1>
+                <div class="navbar-toggle" id="navbar-open">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <ul class="navbar-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#service">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                    <li><a href="appoint.html">Book Appointment</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="navbar-slide-container" id="navbar-slide-container">
+            <div class="navbar-slide" id="navbar-slide">
+                <div class="navbar-slide-top">
+                    <div class="navbar-toggle" id="navbar-close">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                </div>
+                <ul class="navbar-slide-menu">
+                    <div id="slide-home">Home</div>
+                    <div id="slide-services">Services</div>
+                    <div id="slide-blog">Blog</div>
+                    <div id="slide-contact">Contact</div>
+                    <div id="slide-book">Book Appointment</div>
+                </ul>
+            </div>
+        </div>
+
+        <div class="navbar-slide-backfill" id="navbar-slide-backfill"></div>
+    </header>
+    <br><br><br><br><br>
+    <img src="img/ko.jpg" class="mx-auto d-block" style="width:50%"> <br><br>
+    <div id="v1">
+        <p><b>STAY HOME STAY SAFE</b></p>
+    </div><br>
+    <p id="w1"><b>What is COVID-19?</b></p>
+    <p id="t1" style="margin: 0px 30px;"><b>A coronavirus is a kind of common virus that causes an infection in your nose, sinuses, or upper
+            throat. <b><br><br>
+                <b>In early 2020, after a December 2019 outbreak in China, the World Health Organization identified
+                    SARS-CoV-2 as a new type of coronavirus. The outbreak quickly spread around the world.
+
+                    COVID-19 is a disease caused by SARS-CoV-2 that can trigger what doctors call a respiratory tract
+                    infection. It can affect your upper respiratory tract (sinuses, nose, and throat) or lower
+                    respiratory tract (windpipe and lungs).
+
+                    It spreads the same way other coronaviruses do, mainly through person-to-person contact. Infections
+                    range from mild to deadly.</b></p>
+    <p id="n1"><b>Symptoms of COVID-19</b></p>
+    <p id="f1" style="margin: 0px 30px;"><b>Some people become infected but don’t develop any symptoms and don't feel unwell. People with fever,
+            cough and difficulty breathing should seek medical attention immediately.Sore throat
+            Headache,
+            Chills, sometimes with shaking,
+            Loss of smell or taste,
+            Congestion or runny nose,
+            Nausea or vomiting,
+            Diarrhea</b>
+    </p>
+    <img src="img/img10.jpg" class="mx-auto d-block" style="width:50%"> <br><br>
+    <button type="button" class="btn btn-info" id="v7">FAQ's</button>
+    <button type="button" class="btn btn-info" id="v8">MYTH BUSTER</button>
+    <button type="button" class="btn btn-info" id="v9">DO's and Dont's</button><br><br>
+
+    <script type="text/javascript">
+        document.getElementById("v7").onclick = function () {
+            location.href = "covid1.html";
+        };
+        document.getElementById("v8").onclick = function () {
+            location.href = "covid2.html";
+        };
+        document.getElementById("v9").onclick = function () {
+            location.href = "covid3.html";
+        };
+    </script>
+
+</body>
+
+</html>
